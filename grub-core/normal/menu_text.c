@@ -240,9 +240,9 @@ print_entry (int y, int highlight, grub_menu_entry_t entry,
     if (unicode_title[i] == '\n' || unicode_title[i] == '\b'
 	|| unicode_title[i] == '\r' || unicode_title[i] == '\e')
       unicode_title[i] = ' ';
-
-  if (data->geo.num_entries > 1)
-    grub_putcode (highlight ? '*' : ' ', data->term);
+//~ 
+  //~ if (data->geo.num_entries > 1)
+    //~ grub_putcode (highlight ? '*' : ' ', data->term);
 
   grub_print_ucs4_menu (unicode_title,
 			unicode_title + len,
@@ -422,7 +422,7 @@ grub_menu_init_page (int nested, int edit,
 			(struct grub_term_coordinate) { GRUB_TERM_MARGIN,
 			    geo->timeout_y });
 
-      print_message (nested, edit, term, 0);
+      //print_message (nested, edit, term, 0);
       geo->timeout_y += msg_num_lines;
     }
   geo->right_margin = grub_term_width (term)

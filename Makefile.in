@@ -3335,12 +3335,13 @@ nodist_platform_HEADERS = config.h
 @COND_real_platform_TRUE@SUCCESSFUL_BOOT_STRING = 3e49994fd5d82b7c9298d672d774080d
 # tianocore cd access is very slow
 @COND_real_platform_TRUE@BOOTCHECK_TIMEOUT = 180
+BOOT_TYPE?=disk
 windowsdir = $(top_builddir)/$(PACKAGE)-$(VERSION)-for-windows
 windowszip = $(top_builddir)/$(PACKAGE)-$(VERSION)-for-windows.zip
 changelog_start_date = 2015-01-23
 gitlog_to_changelog = $(top_srcdir)/build-aux/gitlog-to-changelog
 all: $(BUILT_SOURCES) config-util.h
-	$(MAKE) $(AM_MAKEFLAGS) all-recursive
+	BOOT_TYPE=$(BOOT_TYPE) $(MAKE) $(AM_MAKEFLAGS) all-recursive
 
 .SUFFIXES:
 .SUFFIXES: .c .cc .log .o .obj .test .test$(EXEEXT) .trs

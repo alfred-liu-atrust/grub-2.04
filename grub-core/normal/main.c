@@ -208,7 +208,11 @@ grub_normal_init_page (struct grub_term_output *term,
  
   grub_term_cls (term);
 
-  msg_formatted = grub_xasprintf (_("GNU GRUB  version %s"), VERSION);
+#ifdef USE_CDROM_BOOT
+  msg_formatted = grub_xasprintf (_("Welcome to the Atrust Recovery System."));
+#else
+  msg_formatted = grub_xasprintf (_("Atrust Thin Client Menu"));
+#endif
   if (!msg_formatted)
     return;
  
